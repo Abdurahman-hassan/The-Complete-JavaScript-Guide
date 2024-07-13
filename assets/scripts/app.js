@@ -14,6 +14,9 @@
 // let $userName = 'John Doe';
 // let _userName = 'John Doe';
 
-let currentResult; // we can declare a variable without assigning a value to it.
-currentResult = 0;
+let currentResult = 0; // we can declare a variable without assigning a value to it.
+currentResult += 10;
 
+let calculationDescription = '(' + currentResult + ' + 10) * 3 / 2 - 1';
+
+outputResult(currentResult, calculationDescription);
