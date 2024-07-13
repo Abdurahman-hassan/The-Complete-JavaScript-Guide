@@ -20,4 +20,11 @@ currentResult += 10;
 // let calculationDescription = "'(' + currentResult + ' + 10) * 3 / 2 - 1'";
 let calculationDescription = `(${currentResult}+ 10) * 3 / 2 - 1`;
 
-outputResult(currentResult, calculationDescription);
+let errorMessage = 'An error \n' + 'occurred!';
+let errorMessage2 =`An error
+
+                    occurred!`; // multi-line string we can add pre value in white space key in css to make it work
+
+
+
+outputResult(currentResult, errorMessage);
