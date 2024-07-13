@@ -25,6 +25,10 @@ let errorMessage2 =`An error
 
                     occurred!`; // multi-line string we can add pre value in white space key in css to make it work
 
-
-
+currentResult = add(1, 2);
 outputResult(currentResult, errorMessage);
+
+
+function add(num1, num2) {
+    return num1 + num2;
+}
