@@ -13,10 +13,11 @@
 // start with a letter, underscore, or dollar sign
 // let $userName = 'John Doe';
 // let _userName = 'John Doe';
-
-let currentResult = 0; // we can declare a variable without assigning a value to it.
+const defaultResult = 0; // we can declare a variable without assigning a value to it.
+let currentResult = defaultResult;
 currentResult += 10;
 
-let calculationDescription = '(' + currentResult + ' + 10) * 3 / 2 - 1';
+// let calculationDescription = "'(' + currentResult + ' + 10) * 3 / 2 - 1'";
+let calculationDescription = `(${currentResult}+ 10) * 3 / 2 - 1`;
 
 outputResult(currentResult, calculationDescription);
