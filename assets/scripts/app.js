@@ -13,9 +13,9 @@
 // start with a letter, underscore, or dollar sign
 // let $userName = 'John Doe';
 // let _userName = 'John Doe';
+
 const defaultResult = 0; // we can declare a variable without assigning a value to it.
 let currentResult = defaultResult;
-// currentResult += 10;
 
 // let calculationDescription = "'(' + currentResult + ' + 10) * 3 / 2 - 1'";
 // let calculationDescription = `(${currentResult}+ 10) * 3 / 2 - 1`;
@@ -31,12 +31,65 @@ let currentResult = defaultResult;
 // execute it when clicking the button
 
 
-addBtn.addEventListener('click', add);
 
+function getUserNumberInput() {
+    return parseInt(userInput.value);
+}
 
+function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
+    const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
+    outputResult(currentResult, calcDescription);
+}
 
 
 function add() {
-    currentResult += parseInt(userInput.value);
-    outputResult(currentResult, '');
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult += enteredNumber;
+    createAndWriteOutput('+', initialResult, enteredNumber);
 }
+
+function subtract() {
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult -= enteredNumber;
+    createAndWriteOutput('-', initialResult, enteredNumber);
+}
+
+function multiply() {
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult *= enteredNumber;
+    createAndWriteOutput('*', initialResult, enteredNumber);
+}
+
+function divide() {
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult /= enteredNumber;
+    createAndWriteOutput('/', initialResult, enteredNumber);
+}
+addBtn.addEventListener('click', add);
+subtractBtn.addEventListener('click', subtract);
+multiplyBtn.addEventListener('click', multiply);
+divideBtn.addEventListener('click', divide);
+
+// js makes an arthmetic operation with string exept the + operator
+// console.log(10 - '5'); // 5
+// console.log('10' * '5'); // 50
+// console.log('10' / '5'); // 2
+// console.log('10' + '5'); // 105
+
+
+// we have object data type in js it's like a dictionary in python
+// const person = {
+//     name: 'John Doe',
+//     age: 30,
+//     hobbies: ['Sports', 'Cooking'],
+//     greet: function () {
+//         alert('Hi there!');
+//     }
+// };
+
+// we also have arrays in js
+// const hobbies = ['Sports', 'Cooking'];
