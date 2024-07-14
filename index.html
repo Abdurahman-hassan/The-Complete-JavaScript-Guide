@@ -10,17 +10,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/styles/app.css" />
-    <!--    if we need to download scripts first we can add it in head section-->
-    <!--    but if we need to download it first and exuted it later after parsing the html-->
-    <!--    we can add defer keyword also when in in head section -->
     <script src="assets/scripts/vendor.js" defer></script>
-    <!--  The browser parsing the HTML and finishing the rendering before execute our script-->
-    <script src="assets/scripts/app.js" defer>
-<!--      if we need to download it later and excute it later we can add it at the end of body-->
-    //  if we need to download it as much as possible and excute it once it downloaded we can add async keyword
-    // it will inparallel download the script and excute it once it downloaded with parsing the html
-    //  it's perfect if the script is dosn't relly on the html
-    </script>
+    <script src="assets/scripts/app.js" defer></script>
   </head>
   <body>
     <header>
