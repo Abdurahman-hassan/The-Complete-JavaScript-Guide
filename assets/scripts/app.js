@@ -15,20 +15,28 @@
 // let _userName = 'John Doe';
 const defaultResult = 0; // we can declare a variable without assigning a value to it.
 let currentResult = defaultResult;
-currentResult += 10;
+// currentResult += 10;
 
 // let calculationDescription = "'(' + currentResult + ' + 10) * 3 / 2 - 1'";
-let calculationDescription = `(${currentResult}+ 10) * 3 / 2 - 1`;
+// let calculationDescription = `(${currentResult}+ 10) * 3 / 2 - 1`;
+//
+// let errorMessage = 'An error \n' + 'occurred!';
+// let errorMessage2 =`An error
+//
+//                     occurred!`; // multi-line string we can add pre value in white space key in css to make it work
 
-let errorMessage = 'An error \n' + 'occurred!';
-let errorMessage2 =`An error
+// currentResult = add(1, 2);
 
-                    occurred!`; // multi-line string we can add pre value in white space key in css to make it work
-
-currentResult = add(1, 2);
-outputResult(currentResult, errorMessage);
+// don't execute the function here, but tell the engine that this function exists
+// execute it when clicking the button
 
 
-function add(num1, num2) {
-    return num1 + num2;
+addBtn.addEventListener('click', add);
+
+
+
+
+function add() {
+    currentResult += parseInt(userInput.value);
+    outputResult(currentResult, '');
 }
