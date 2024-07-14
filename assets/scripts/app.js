@@ -109,3 +109,30 @@ divideBtn.addEventListener('click', divide);
 
 // we also have arrays in js
 // const hobbies = ['Sports', 'Cooking'];
+
+
+// undefined is Default Value of uninitialized variables
+// let x;
+// console.log(x); // undefined
+// this is benefit to check if a variable is defined or not
+
+// null is a special value that represents "nothing", "empty" or "value unknown".
+// let y = null;
+// console.log(y); // null
+// this is benefit to reset or clear a variable
+
+// NaN is a property of the global object. In other words, it is a variable in global scope.
+// The initial value of NaN is Not-A-Number — the same as the value of Number.NaN.
+// let z = NaN;
+// console.log(z); // NaN
+//3.14159 * 'PIE' // NaN
+// this is benefit to check if a variable is a number or not
+
+// typeof operator returns a string indicating the type of the unevaluated operand.
+// let x = 5;
+// let y = 'John Doe';
+// let z = null;
+// typeof x; // number
+// typeof y; // string
+// typeof z; // object
+// typeof undefined; // undefined
