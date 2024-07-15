@@ -40,7 +40,7 @@ function calculateResult(calculationType) {
         calculationType !== 'SUBTRACT' &&
         calculationType !== 'MULTIPLY' &&
         calculationType !== 'DIVIDE' ||
-        !enteredNumber
+        !enteredNumber // if enteredNumber is 0
     ) {
         return;
     }
@@ -102,3 +102,7 @@ divideBtn.addEventListener('click', divide);
 // person1.name === person3.name // true
 // person1['name'] === person3['name'] // true
 
+// falsy and truthy values
+// falsy values: 0, '', null, undefined, NaN
+// truthy values: everything else also "false" is a truthy value
+// because it's a string and it's not empty
