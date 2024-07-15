@@ -29,39 +29,76 @@ function writeToLog(
   console.log(logEntries);
 }
 
+function calculateResult(calculationType) {
+    const enteredNumber = getUserNumberInput();
+    // operations = ['ADD', 'SUBTRACT', 'MULTIPLY', 'DIVIDE'];
+    // if (operations.indexOf(calculationType) === -1) {
+    //     return;
+    // }
+    if (
+        calculationType !== 'ADD' &&
+        calculationType !== 'SUBTRACT' &&
+        calculationType !== 'MULTIPLY' &&
+        calculationType !== 'DIVIDE' ||
+        !enteredNumber
+    ) {
+        return;
+    }
+
+    const initialResult = currentResult;
+    let mathOperator;
+    if (calculationType === 'ADD') {
+        currentResult += enteredNumber;
+        mathOperator = '+';
+    } else if (calculationType === 'SUBTRACT') {
+        currentResult -= enteredNumber;
+        mathOperator = '-';
+    } else if (calculationType === 'MULTIPLY') {
+        currentResult *= enteredNumber;
+        mathOperator = '*';
+    } else if (calculationType === 'DIVIDE') {
+        currentResult /= enteredNumber;
+        mathOperator = '/';
+    }
+
+    createAndWriteOutput(mathOperator, initialResult, enteredNumber);
+    writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+
+}
+
 function add() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult += enteredNumber;
-  createAndWriteOutput('+', initialResult, enteredNumber);
-  writeToLog('ADD', initialResult, enteredNumber, currentResult);
+    calculateResult('ADD');
 }
 
 function subtract() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult -= enteredNumber;
-  createAndWriteOutput('-', initialResult, enteredNumber);
-  writeToLog('SUBTRACT', initialResult, enteredNumber, currentResult);
+    calculateResult('SUBTRACT');
 }
 
 function multiply() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult *= enteredNumber;
-  createAndWriteOutput('*', initialResult, enteredNumber);
-  writeToLog('MULTIPLY', initialResult, enteredNumber, currentResult);
+    calculateResult('MULTIPLY');
 }
 
 function divide() {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult /= enteredNumber;
-  createAndWriteOutput('/', initialResult, enteredNumber);
-  writeToLog('DIVIDE', initialResult, enteredNumber, currentResult);
+    calculateResult('DIVIDE');
 }
 
 addBtn.addEventListener('click', add);
 subtractBtn.addEventListener('click', subtract);
 multiplyBtn.addEventListener('click', multiply);
 divideBtn.addEventListener('click', divide);
+
+
+
+// comparing objects
+// const person1 = {name = 'Abdo'}
+// const person2 = {name = 'Abdo'}
+// person1 === person2 // false
+// person1 == person2 // false
+// it's false because they are two different objects in memory
+
+// const person3 = person1
+// it's true because person3 is pointing to the same object in memory
+// person3 === person1 // true
+// person1.name === person3.name // true
+// person1['name'] === person3['name'] // true
+
