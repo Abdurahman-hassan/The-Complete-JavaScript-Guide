@@ -186,3 +186,62 @@ attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttackHandler);
 healBtn.addEventListener('click', healPlayerHandler);
 logBtn.addEventListener('click', printLogHandler);
+
+
+// !! Boolean coercion via double negation !! // NOT double bang operator
+// !!'string' => true
+// !!undefined => false
+// !!null => false
+// !!0 => false
+// !!1 => true
+// !!{} => true
+// !![] => true
+// !!'' => false
+// !!NaN => false
+// !!false => false
+// !!true => true
+
+// const userInput = '';
+// const isValidInput = userInput ? true : false;
+// or // const isValidInput = !!userInput;
+// isValidInput => false
+// !userInput => true
+// !!userInput => false
+// const userName = userInput || 'Max';
+// userName => 'Max'
+// const realUserInput = 'Manu';
+// const realUserName = realUserInput || 'Max';
+// realUserName => 'Manu'; // return the first true one
+// const isLoggedIn = true;
+// const shoppingCart = isLoggedIn && ['books'];
+// shoppingCart => ['books'];
+// isLoggedIn = false;
+// isLoggedIn && ['books'] => false // return the first value if it is false
+// null && ['books'] => null // return the first value if it is false
+// isLoggedIn = true;
+// isLoggedIn && "" => ""
+
+// in &&
+// if the first value is true always return the second value
+// and if the first value is false always return the first value
+
+// in ||
+// if the first value is true always return the first value
+// and if the first value is false always return the second value
+
+/*
+const userName = 'Max';
+const altName = '';
+console.log(userName === 'Max'); // generates and prints a boolean => true
+console.log(userName); // wasn't touched, still is a string => 'Max'
+
+console.log(userName || null); // userName is truthy and therefore returned by || => 'Max'
+console.log(altName || 'Max'); // altName is falsy (empty string), hence 'Max' is returned => 'Max'
+console.log(altName || ''); // both altName and '' are falsy but if the first operand is falsy, the second one is always returned => ''
+console.log(altName || null || 'Anna'); // altName and null are falsy, 'Anna' is returned => 'Anna'
+
+console.log(userName && 'Anna'); // userName is truthy, hence second (!) value is returned => 'Anna'
+console.log(altName && 'Anna'); // altName is falsy, hence first value is returned => ''
+console.log(userName && ''); // userName is truthy, hence second value is returned => ''
+
+ */
