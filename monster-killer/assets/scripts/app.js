@@ -10,19 +10,35 @@ const LOG_EVENT_MONSTER_ATTACK = 'MONSTER_ATTACK';
 const LOG_EVENT_PLAYER_HEAL = 'PLAYER_HEAL';
 const LOG_EVENT_GAME_OVER = 'GAME_OVER';
 
-const enterdValue = prompt("Max life for you and the monster.", "100");
-
-let chosenMaxLife = parseInt(enterdValue);
 let battleLog = [];
-if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
-    chosenMaxLife = 100;
+
+function getMaxLifeValues() {
+    const enteredValue = prompt('Maximum life for you and the monster.', '100');
+    const parsedValue = parseInt(enteredValue);
+    if (isNaN(parsedValue) || parsedValue <= 0) {
+        throw {message: 'Invalid user input, not a number!'};
+    }
+    return parsedValue;
+
 }
+
+let chosenMaxLife;
+try {
+    chosenMaxLife = getMaxLifeValues();
+}catch (error) {
+    console.log(error);
+    // we did the fallback value we don't need finally block
+    chosenMaxLife = 100;
+    alert('You entered something wrong, default value of 100 was used.');
+    // throw error;
+} // if we have an error in catch we can use finally block to do some clean up
 
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
 let hasBonusLife = true;
 
 adjustHealthBars(chosenMaxLife);
+
 
 function printLogHandler() {
     for (let i = 0; i < battleLog.length; i++) {
