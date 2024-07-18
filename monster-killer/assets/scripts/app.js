@@ -25,7 +25,31 @@ let hasBonusLife = true;
 adjustHealthBars(chosenMaxLife);
 
 function printLogHandler() {
-    console.log(battleLog);
+    for (let i = 0; i < battleLog.length; i++) {
+        console.log('-------------------');
+        console.log(battleLog[i]);
+    }
+
+    // for of
+    // for (const logEntry of battleLog) {
+    //     console.log('-------------------');
+    //     console.log(logEntry);
+    // }
+
+    // for in
+    // for (const key in battleLog) {
+    //     console.log('-------------------');
+    //     console.log(battleLog[key]);
+    // }
+
+    // let i = 0;
+    // for (const logEntry of battleLog) {
+    //     console.log(`#${i}`);
+    //     for (const key in logEntry) {
+    //         console.log(`${key} => ${logEntry[key]}`);
+    //     }
+    //     i++;
+    // }
 }
 
 function writeTolog(ev, val, monsterHealth, playerHealth) {
@@ -287,3 +311,26 @@ console.log(altName && 'Anna'); // altName is falsy, hence first value is return
 console.log(userName && ''); // userName is truthy, hence second value is returned => ''
 
  */
+
+/*
+we have 3 types of for loop in JS
+1. for loop
+2. for-in loop
+3. for-of loop
+
+1. for loop
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+2. for-in loop
+const person = { name : "Abdo", age : 27 };
+for (const key in person) {
+  console.log(key, person[key]);
+}
+3. for-of loop
+const hobbies = ['Sports', 'Cooking'];
+for (const hobby of hobbies) {
+  console.log(hobby);
+}
+ */
+
