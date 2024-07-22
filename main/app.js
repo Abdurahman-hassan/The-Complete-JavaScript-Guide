@@ -161,7 +161,27 @@ startGameBtn.addEventListener('click', function () {
 
 // rest operator
 // the rest operator is used to merge a list of function arguments into an array
-const sumUp = (a, b, ...numbers) => {
+// const sumUp = (a, b, ...numbers) => {
+//     const validateNumber = (number) => {
+//         return isNaN(number) ? 0 : number;
+//     };
+//
+//     let sum = 0;
+//     for (const num of numbers) {
+//         sum += validateNumber(num);
+//     }
+//     return sum;
+// }
+//
+// // 1 for a, 5 for b, 10 for the rest
+// console.log(sumUp(1, 5, 10, -3, 6, 10));
+//
+
+
+// rest operator
+// the rest operator is used to merge a list of function arguments into an array
+// use callback function to handle the result
+const sumUp = (resultHandler, ...numbers) => {
     const validateNumber = (number) => {
         return isNaN(number) ? 0 : number;
     };
@@ -170,16 +190,20 @@ const sumUp = (a, b, ...numbers) => {
     for (const num of numbers) {
         sum += validateNumber(num);
     }
-    return sum;
+    resultHandler(sum); // execute the callback function with the result
 }
 
-// 1 for a, 5 for b, 10 for the rest
-console.log(sumUp(1, 5, 10, -3, 6, 10));
+
+const showResult = (result) => {
+    alert('The result after adding all numbers is: ' + result);
+}
 
 
-// we can use arguments object to get all arguments passed to a function
+sumUp(showResult, 2,2,2);
+
+
+// we can use arguments object to get all arguments passed to a function,
 // but it's not an array, it's an array-like object
-
 const subtractUp = function () {
     let sum = 0;
     for (const num of arguments) { // not recommended to use arguments object
