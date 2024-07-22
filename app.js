@@ -1,7 +1,7 @@
 const startGameBtn = document.getElementById('start-game-btn');
 
 
-const  ROCK = 'rock';
+const ROCK = 'rock';
 const PAPER = 'paper';
 const SCISSORS = 'scissors';
 const DEFAULT_USER_CHOICE = ROCK;
@@ -15,12 +15,12 @@ const getPlayerChoice = () => {
     const selection = prompt(`${ROCK}, ${PAPER} or ${SCISSORS}?`, '').toLowerCase();
     if (selection !== ROCK && selection !== PAPER && selection !== SCISSORS) {
         alert(`Invalid choice! We chose ${DEFAULT_USER_CHOICE} for you!`);
-        return DEFAULT_USER_CHOICE;
+        return;
     }
     return selection;
 };
 
-const getComputerChoice = function() {
+const getComputerChoice = function () {
     const randomValue = Math.random();
     if (randomValue < 0.34) {
         return ROCK;
@@ -31,7 +31,7 @@ const getComputerChoice = function() {
     }
 }
 
-const getWinner = (cChoice, pChoice) => {
+const getWinner = (cChoice, pChoice = DEFAULT_USER_CHOICE) => {
     if (cChoice === pChoice) {
         return RESULT_DRAW;
     } else if (
@@ -45,19 +45,27 @@ const getWinner = (cChoice, pChoice) => {
     }
 }
 
-startGameBtn.addEventListener('click', function() {
+startGameBtn.addEventListener('click', function () {
     if (gameIsRunning) {
         return;
     } // if game is already running, return will stop the function
     gameIsRunning = true;
     console.log('Game is starting...');
-    const playerSelection = getPlayerChoice();
+    const playerSelection = getPlayerChoice(); // might be undefined
     console.log(playerSelection);
     const computerSelection = getComputerChoice();
     console.log(computerSelection);
-    const winner = getWinner(computerSelection, playerSelection);
-    console.log(winner);
-    let message = `You picked ${playerSelection}, computer picked ${computerSelection}, therefore you `;
+
+    let winner;
+    // if the playerSelection is not undefined, then we can call getWinner with two arguments
+    if (playerSelection) {
+        winner = getWinner(computerSelection, playerSelection);
+        console.log(winner);
+    } else {
+        winner = getWinner(computerSelection, playerSelection); // if playerSelection is undefined, then we call getWinner with only one argument
+    }
+
+    let message = `You picked ${playerSelection ||  DEFAULT_USER_CHOICE}, computer picked ${computerSelection}, therefore you `;
     if (winner === RESULT_DRAW) {
         message += 'had a draw.';
     } else if (winner === RESULT_PLAYER_WINS) {
@@ -130,7 +138,6 @@ startGameBtn.addEventListener('click', function() {
 // });
 
 
-
 // more about arrow functions
 // Function returns an object (with shortened syntax as shown in 4)):
 // const person = { name: 'Max' }; // Clearly creates an object
@@ -151,3 +158,34 @@ startGameBtn.addEventListener('click', function() {
 //     return result; // like in "normal" functions, parameters and return statement are OPTIONAL!
 // };
 
+
+// rest operator
+// the rest operator is used to merge a list of function arguments into an array
+const sumUp = (a, b, ...numbers) => {
+    const validateNumber = (number) => {
+        return isNaN(number) ? 0 : number;
+    };
+
+    let sum = 0;
+    for (const num of numbers) {
+        sum += validateNumber(num);
+    }
+    return sum;
+}
+
+// 1 for a, 5 for b, 10 for the rest
+console.log(sumUp(1, 5, 10, -3, 6, 10));
+
+
+// we can use arguments object to get all arguments passed to a function
+// but it's not an array, it's an array-like object
+
+const subtractUp = function () {
+    let sum = 0;
+    for (const num of arguments) { // not recommended to use arguments object
+        sum -= num;
+    }
+    return sum;
+}
+
+console.log(subtractUp(1, 10, 15, 20));
