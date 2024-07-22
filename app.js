@@ -57,6 +57,16 @@ startGameBtn.addEventListener('click', function() {
     console.log(computerSelection);
     const winner = getWinner(computerSelection, playerSelection);
     console.log(winner);
+    let message = `You picked ${playerSelection}, computer picked ${computerSelection}, therefore you `;
+    if (winner === RESULT_DRAW) {
+        message += 'had a draw.';
+    } else if (winner === RESULT_PLAYER_WINS) {
+        message += 'won.';
+    } else {
+        message += 'lost.';
+    }
+    alert(message);
+    gameIsRunning = false;
 });
 
 // function startGame() {
@@ -140,3 +150,4 @@ startGameBtn.addEventListener('click', function() {
 //     const result = a + b;
 //     return result; // like in "normal" functions, parameters and return statement are OPTIONAL!
 // };
+
