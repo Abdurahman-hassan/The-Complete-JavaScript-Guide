@@ -3,6 +3,16 @@ const h1 = document.getElementById('main-title');
 h1.textContent = 'Some new title!';
 h1.style.color = 'white';
 h1.style.backgroundColor = 'black';
+h1.className = 'oldTitle';
+// h1.className // Contains the class attribute of the element
+// h1.id // Contains the id attribute of the element
+// h1.style // Contains the style attribute of the element
+// h1.className = 'title'; // Sets the class attribute of the element
+// h1.setAttribute('class', 'title'); // Sets the class attribute of the element
+// h1.className // oldTitle
+// h1.className = h1.getAttribute('class') + ' title'; // Adds the class 'title' to the class attribute
+// h1.className // oldTitle title
+
 
 // document.querySelector('.list-item'); // Returns the first element that matches the selector
 // document.querySelectorAll('.list-item'); // Returns a NodeList with all elements that match the selector
@@ -61,3 +71,17 @@ for (const listItemEl of listItemElements) {
 // More information: https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName
 //
 // There also is the getElementsByName() method which really isn't used commonly (https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByName).
+
+
+// properties vs attributes
+// properties: value, checked, selected, etc.
+// attributes: type, id, href, etc.
+// properties are always up-to-date
+// attributes are the initial values
+// tell me more about properties and attributes
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/attributes
+// https://javascript.info/dom-attributes-and-properties
+
+// attributes is html attributes that are defined in the html tag
+// properties are the properties of the element object in the DOM
+
