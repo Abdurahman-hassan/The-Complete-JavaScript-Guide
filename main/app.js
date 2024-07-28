@@ -85,3 +85,87 @@ for (const listItemEl of listItemElements) {
 // attributes is html attributes that are defined in the html tag
 // properties are the properties of the element object in the DOM
 
+
+
+// traverse the DOM in order to select the second list item
+const ul = document.querySelector('ul');
+console.log(ul.children[1]);
+
+// children vs childNodes
+// children: only elements
+// childNodes: elements and text nodes
+console.log(ul.childNodes); // NodeList(7)[text, li.list-item, text, li.list-item, text, li.list-item, text]
+console.log(ul.children); // HTMLCollection(3)[li.list-item, li.list-item, li.list-item]
+
+// in order to see the text nodes with css attributes
+// ul style="white-space: pre;"
+
+// firstElementChild vs firstChild
+// firstElementChild: first element
+// firstChild: first node
+console.log(ul.firstChild); // #text
+console.log(ul.firstElementChild); // <li class="list-item">...</li>
+console.log(ul.lastChild); // #text
+console.log(ul.lastElementChild); // <li class="list-item">...</li>
+
+// parentElement vs parentNode
+// parentElement: parent element
+// parentNode: parent node
+console.log(ul.parentElement); // <body>...</body>
+console.log(ul.parentNode); // <body>...</body>
+// it's the same for the first and last child
+console.log(ul.firstElementChild.parentElement); // <ul>...</ul>
+console.log(ul.firstElementChild.parentNode); // <ul>...</ul>
+// there is one exception
+console.log(document.body.parentElement); // null
+console.log(document.body.parentNode); // #document
+console.log(document.documentElement.parentElement); // #null
+console.log(document.documentElement.parentNode); // #document
+// but it's not really matter because the document is the root of the DOM tree
+
+// closest
+// closest: closest parent element that matches the selector
+console.log(ul.closest('body')); // <body>...</body>
+
+// previousElementSibling vs previousSibling
+// previousElementSibling: previous element
+// previousSibling: previous node
+console.log(ul.previousElementSibling); // <h1 id="main-title" class="title">...</h1>
+console.log(ul.previousSibling); // #text
+// if the elements under the same parent
+// for example
+// <ul>
+//   <li>...</li>
+//   <li>...</li>
+//   <li>...</li>
+// </ul>
+// ul.firstElementChild.nextElementSibling // <li>...</li>
+// ul.firstElementChild.nextSibling // #text
+// ul.firstElementChild.nextElementSibling.nextElementSibling // <li>...</li>
+// ul.firstElementChild.nextSibling.nextSibling // #text
+// ul.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling // <li>...</li>
+// ul.firstElementChild.nextSibling.nextSibling.nextSibling // null
+
+// previousElementSibling vs previousSibling
+// previousElementSibling: previous element
+// previousSibling: previous node
+console.log(ul.nextElementSibling); // null
+console.log(ul.nextSibling); // #text
+// if the elements under the same parent
+// for example
+// <header> ... </header>
+// <ul>
+//   <li>1</li>
+//   <li>2</li>
+//   <li>3</li>
+// </ul>
+// <footer> ... </footer>
+// ul.nextElementSibling // <footer> ... </footer>
+// ul.previousElementSibling // <header> ... </header>
+
+// const ul = document.body.firstElementChild.nextElementSibling;
+// const firstLi = ul.firstElementChild;
+// console.log(firstLi); // <li class="list-item">...</li>
+// but if we add another element accidentally it will an issue
+// because we are assuming that the first element is the first li element
+// so it's better to use the querySelector
