@@ -169,3 +169,27 @@ console.log(ul.nextSibling); // #text
 // but if we add another element accidentally it will an issue
 // because we are assuming that the first element is the first li element
 // so it's better to use the querySelector
+
+
+
+// styling the Dom
+const section = document.querySelector('section');
+// section.style.backgroundColor = 'blue';
+
+const button = document.querySelector('button');
+
+// section.style.backgroundColor = 'blue';
+section.className = 'red-bg';
+
+button.addEventListener('click', () => {
+  // if (section.className === 'red-bg visible') {
+  //   section.className = 'red-bg invisible';
+  // } else {
+  //   section.className = 'red-bg visible';
+  // }
+  // we can add the class invisible to the section
+  // or remove or replace it
+  // or toggle it
+  // section.classList.toggle('visible');
+  section.classList.toggle('invisible');
+});
