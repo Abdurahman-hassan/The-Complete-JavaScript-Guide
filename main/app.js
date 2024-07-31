@@ -193,3 +193,59 @@ button.addEventListener('click', () => {
   // section.classList.toggle('visible');
   section.classList.toggle('invisible');
 });
+
+
+// adding elements
+// section.innerHTML = '<h2>A new title!</h2>';
+// but it will remove the existing elements
+const list = document.querySelector('ul');
+list.innerHTML += '<li>Item 4</li>';
+// but this is not good in performance
+// because it will remove all the elements and add them again
+// so it's better to use the following
+const newLi = document.createElement('li');
+const newLi2 = document.createElement('li');
+newLi.textContent = 'Item 5';
+newLi.style.backgroundColor = 'green';
+newLi2.textContent = 'Item 6';
+newLi2.style.backgroundColor = 'yellow';
+list.appendChild(newLi);
+list.prepend(newLi); // add it to the beginning
+list.append("Some text"); // add text
+list.insertBefore(newLi2, list.children[0]); // insert it before the first element
+// this is better than prepend and appendChild because it's supported in all browsers
+// and internet explorer also
+
+
+const div = document.querySelector('div');
+// we can use insertAdjacentHTML
+// we have 4 options
+// 'beforebegin': Before the element itself.
+// 'afterbegin': Just inside the element, before its first child.
+// 'beforeend': Just inside the element, after its last child.
+// 'afterend': After the element itself.
+div.insertAdjacentHTML('beforeend', '<p>Another paragraph</p>');
+
+
+// newLi.lastElementChild.before(newLi2); // insert it before the last element
+// newLi.lastElementChild.after(newLi2); // insert it after the last element
+// newLi.replaceWith(newLi2); // replace it with the last element
+// before and after are not supported in internet explorer and safari
+
+// the better way to use insertAdjacentElement
+const listt = document.querySelector('ul');
+const thirdLi = listt.children[2];
+const newLi3 = document.createElement('li');
+newLi3.textContent = 'Item 7';
+thirdLi.insertAdjacentElement('beforebegin', newLi3);
+
+// clone elements
+const newLi4 = newLi3.cloneNode(true);
+listt.append(newLi, newLi4); // add it to the end
+// if we pass false it will not clone the children
+// if we pass true it will clone the children
+
+
+// remove elements
+// listt.remove(); // remove the element
+// listt.parentElement.removeChild(listt); // remove the element
