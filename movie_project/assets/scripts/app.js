@@ -62,7 +62,7 @@ const startDeleteMovieHandler = (movieId) => {
 const renderNewMovieElement = (movieId, title, imageUrl, rating) => {
     const newMovieElement = document.createElement('li');
     newMovieElement.className = 'movie-element';
-    newMovieElement.insertAdjacentHTML('afterbegin',`
+    newMovieElement.insertAdjacentHTML('afterbegin', `
         <div class="movie-element__image">
             <img src="${imageUrl}" alt="${title}">
         </div>
@@ -70,7 +70,7 @@ const renderNewMovieElement = (movieId, title, imageUrl, rating) => {
             <h2>${title}</h2>
             <p>${rating}/5 stars</p>
         </div>
-    `) ;
+    `);
     newMovieElement.addEventListener('click', startDeleteMovieHandler.bind(null, movieId));
     const listRoot = document.getElementById('movie-list');
     listRoot.append(newMovieElement);
@@ -131,7 +131,7 @@ const addMovieHandler = () => {
     closeMovieModal();
     toggleBackdrop();
     clearMovieInput();
-    renderNewMovieElement(newMovie.id ,newMovie.title, newMovie.image, newMovie.rating);
+    renderNewMovieElement(newMovie.id, newMovie.title, newMovie.image, newMovie.rating);
     updateUI();
 };
 
@@ -140,6 +140,7 @@ const backdropClickHandler = () => {
     closeMovieDeletionModal();
     clearMovieInput();
 }
+
 startAddMovieButton.addEventListener('click', showMovieModal);
 backdrop.addEventListener('click', backdropClickHandler);
 cancelAddMovieButton.addEventListener('click', cancelAddMovieHandler);
