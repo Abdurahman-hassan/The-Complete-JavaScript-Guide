@@ -87,3 +87,28 @@ const storedResults2 = testResults.concat([3.99, 2]); // add 3.99 and 2 to the e
 console.log(storedResults2);
 testResults.push([3.99, 2]); // add an array to the end of the array
 console.log(testResults, storedResults, storedResults2);
+
+// indexOf, lastIndexOf
+console.log(testResults.indexOf(1.5)); // first index of 1.5
+console.log(testResults.lastIndexOf(1.5)); // read from the right, last index of 1.5
+console.log(testResults.includes(10.99));
+console.log(testResults.indexOf(10.99) !== -1);
+
+const personData = [{ name: 'Max' }, { name: 'Manuel' }];
+// if we want to find it, we need to find the index of the object itself, we will get -1
+console.log(personData.indexOf({ name: 'Manuel' })); // didn't find it, because it's a reference type, it's not the same object
+
+// we can fix this by using findIndex
+//find, findIndex
+const manuel = personData.find((person, idx, persons) => {
+  return person.name === 'Manuel';
+});
+console.log(manuel);
+manuel.name = 'Anna';
+
+console.log(manuel, personData);
+
+const maxIndex = personData.findIndex((person, idx, persons) => {
+  return person.name === 'Max';
+});
+console.log(maxIndex);
