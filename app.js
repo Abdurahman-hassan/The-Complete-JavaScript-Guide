@@ -130,3 +130,31 @@ prices.forEach((price, idx, prices) => {
 });
 
 console.log(taxAdjustedPrices);
+
+// map
+// for and forEach we need a separate array to store the results
+// map is better, it returns a new array
+const pricesWithMap = [10.99, 5.99, 3.99, 6.59];
+const taxWithMap = 0.19;
+
+const taxAdjustedPricesUsingMap = pricesWithMap.map((price, idx, prices) => {
+  const priceObjWithMap = { index: idx, taxAdjPrice: price * (1 + taxWithMap) };
+  return priceObjWithMap;
+});
+
+console.log(pricesWithMap, taxAdjustedPricesUsingMap);
+
+
+// sort, reverse
+const sortedPrices = prices.sort((a, b) => {
+  if (a > b) {
+    return -1;
+  } else if (a === b) {
+    return 0;
+  } else {
+    return 1;
+  }
+}); // if we change the order of a and b, it will be ascending order or if we change the order of -1 and 1, it will be ascending order
+console.log(sortedPrices.reverse());
+console.log(sortedPrices);
+
