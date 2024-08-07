@@ -35,9 +35,9 @@ const personalData = [30, 'Max', {moreDetail: []}];
 const analyticsData = [[1, 1.6], [-5.4, 2.1]];
 
 for (const data of analyticsData) {
-  for (const dataPoint of data) {
-    console.log(dataPoint);
-  }
+    for (const dataPoint of data) {
+        console.log(dataPoint);
+    }
 }
 
 console.log(personalData[1]);
@@ -63,7 +63,6 @@ hobbies[5] = 'Reading'; // rarely used, there where be 3 empty items between 2 a
 console.log(hobbies, hobbies[4]);
 
 
-
 // splice
 
 hobbies.splice(1, 0, 'Good Food');
@@ -82,3 +81,9 @@ const storedResults = testResults.slice(2); // from index 2 to the end
 console.log(storedResults);
 const storedResults1 = testResults.slice(0, 2); // from index 0 to 2
 console.log(storedResults1);
+
+// concat
+const storedResults2 = testResults.concat([3.99, 2]); // add 3.99 and 2 to the end of the array
+console.log(storedResults2);
+testResults.push([3.99, 2]); // add an array to the end of the array
+console.log(testResults, storedResults, storedResults2);
