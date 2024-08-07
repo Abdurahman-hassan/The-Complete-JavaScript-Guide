@@ -88,11 +88,11 @@ console.log(storedResults2);
 testResults.push([3.99, 2]); // add an array to the end of the array
 console.log(testResults, storedResults, storedResults2);
 
-// indexOf, lastIndexOf
+// indexOf, lastIndexOf, includes
 console.log(testResults.indexOf(1.5)); // first index of 1.5
 console.log(testResults.lastIndexOf(1.5)); // read from the right, last index of 1.5
-console.log(testResults.includes(10.99));
-console.log(testResults.indexOf(10.99) !== -1);
+console.log(testResults.includes(10.99)); // check if the array includes 10.99 and return true or false
+console.log(testResults.indexOf(10.99) !== -1); // same as includes
 
 const personData = [{ name: 'Max' }, { name: 'Manuel' }];
 // if we want to find it, we need to find the index of the object itself, we will get -1
@@ -112,3 +112,21 @@ const maxIndex = personData.findIndex((person, idx, persons) => {
   return person.name === 'Max';
 });
 console.log(maxIndex);
+
+
+
+// for each
+const prices = [10.99, 5.99, 3.99, 6.59];
+const tax = 0.19;
+const taxAdjustedPrices = [];
+
+for (const price of prices) {
+  taxAdjustedPrices.push(price * (1 + tax));
+}
+
+prices.forEach((price, idx, prices) => {
+  const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
+  taxAdjustedPrices.push(priceObj);
+});
+
+console.log(taxAdjustedPrices);
