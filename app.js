@@ -1,7 +1,7 @@
 const numbers = [1, 2, 3];
 console.log(numbers);
 
-const numbersFrom = Array.from(numbers);
+const numbersFrom = Array.from(numbers); // convert array-like or iterable object to array, then we can use splice, push, pop, etc.
 console.log(numbersFrom);
 
 const moreNumbers = new Array('Hi', 'Welcome');
@@ -61,3 +61,16 @@ console.log(myHobbies);
 hobbies[1] = 'Coding';
 hobbies[5] = 'Reading'; // rarely used, there where be 3 empty items between 2 and 5, empty spots are not good
 console.log(hobbies, hobbies[4]);
+
+
+
+// splice
+
+hobbies.splice(1, 0, 'Good Food');
+// delete 0 items, add 'Good Food' at index 1
+// we just shift the elements to the right
+// if i say 3 instead of 0, it will delete 3 elements starting from index 1
+console.log(hobbies);
+
+const removedElements = hobbies.splice(-2, 1);
+console.log(hobbies);
