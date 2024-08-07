@@ -74,3 +74,11 @@ console.log(hobbies);
 
 const removedElements = hobbies.splice(-2, 1);
 console.log(hobbies);
+
+
+// slice
+const testResults = [1, 5.3, 1.5, 10.99, 1.5, -5, 10];
+const storedResults = testResults.slice(2); // from index 2 to the end
+console.log(storedResults);
+const storedResults1 = testResults.slice(0, 2); // from index 0 to 2
+console.log(storedResults1);
