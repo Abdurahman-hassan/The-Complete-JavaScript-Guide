@@ -29,3 +29,35 @@ const name = "Abdelrahman";
 const nameArray = Array.from(name);
 console.log(nameArray);
 
+const hobbies = ['Cooking', 'Sports'];
+const personalData = [30, 'Max', {moreDetail: []}];
+
+const analyticsData = [[1, 1.6], [-5.4, 2.1]];
+
+for (const data of analyticsData) {
+  for (const dataPoint of data) {
+    console.log(dataPoint);
+  }
+}
+
+console.log(personalData[1]);
+
+// push, pop, shift, unshift
+
+const myHobbies = ['Sports', 'Cooking'];
+myHobbies.push('Reading');
+console.log(myHobbies);
+myHobbies.unshift('Coding');
+console.log(myHobbies);
+const poppedValue = myHobbies.pop();
+console.log(`Popped value: ${poppedValue}`);
+console.log(myHobbies);
+myHobbies.shift();
+console.log(myHobbies);
+// shift is removing the first element, unshift is adding the first element
+// pop is removing the last element, push is adding the last element
+// performance wise, shift and unshift are slower than pop and push
+
+hobbies[1] = 'Coding';
+hobbies[5] = 'Reading'; // rarely used, there where be 3 empty items between 2 and 5, empty spots are not good
+console.log(hobbies, hobbies[4]);
